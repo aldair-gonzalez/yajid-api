@@ -10,7 +10,7 @@ import {
   NotFoundException,
   HttpCode,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -22,6 +22,7 @@ import { ParseTrimFromDto } from 'src/utils/trim';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @ApiOperation({ summary: 'Create a user' })
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     try {
@@ -34,6 +35,7 @@ export class UsersController {
     }
   }
 
+  @ApiOperation({ summary: 'Get all users' })
   @Get()
   async findAll() {
     try {
@@ -45,6 +47,7 @@ export class UsersController {
     }
   }
 
+  @ApiOperation({ summary: 'Create user by id' })
   @Get(':user_id')
   async findOne(@Param('user_id') user_id: number) {
     try {
@@ -60,6 +63,7 @@ export class UsersController {
     }
   }
 
+  @ApiOperation({ summary: 'Update user by id' })
   @Patch(':user_id')
   async update(
     @Param('user_id') user_id: number,
@@ -79,6 +83,7 @@ export class UsersController {
     }
   }
 
+  @ApiOperation({ summary: 'Delete user by id' })
   @Delete(':user_id')
   @HttpCode(204)
   async remove(@Param('user_id') user_id: number) {
