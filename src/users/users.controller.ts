@@ -47,7 +47,7 @@ export class UsersController {
     }
   }
 
-  @ApiOperation({ summary: 'Create user by id' })
+  @ApiOperation({ summary: 'Get user by id' })
   @Get(':user_id')
   async findOne(@Param('user_id') user_id: number) {
     try {
