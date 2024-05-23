@@ -29,7 +29,7 @@ export class UserRolesController {
       ParseTrimFromDto(createUserRoleDto);
       return await this.userRolesService.create(createUserRoleDto);
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
@@ -41,7 +41,7 @@ export class UserRolesController {
     try {
       return await this.userRolesService.findAll();
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
@@ -57,7 +57,7 @@ export class UserRolesController {
       if (!userRole) throw new NotFoundException('user role not found');
       return userRole;
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
@@ -80,7 +80,7 @@ export class UserRolesController {
         updateUserRoleDto,
       );
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
@@ -97,7 +97,7 @@ export class UserRolesController {
       if (!userRole) throw new NotFoundException('user role not found');
       await this.userRolesService.remove(user_role_id);
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }

@@ -28,7 +28,7 @@ export class AddressTypesController {
       ParseTrimFromDto(createAddressTypeDto);
       return await this.addressTypesService.create(createAddressTypeDto);
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
@@ -40,7 +40,7 @@ export class AddressTypesController {
     try {
       return await this.addressTypesService.findAll();
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
@@ -57,7 +57,7 @@ export class AddressTypesController {
       if (!addressType) throw new BadRequestException('Address type not found');
       return addressType;
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
@@ -81,7 +81,7 @@ export class AddressTypesController {
         updateAddressTypeDto,
       );
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
@@ -99,7 +99,7 @@ export class AddressTypesController {
       if (!addressType) throw new BadRequestException('Address type not found');
       await this.addressTypesService.remove(address_type_id);
     } catch (error) {
-      if (error.message || error.sqlState)
+      if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
       throw error;
     }
