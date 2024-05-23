@@ -10,6 +10,8 @@ import { RolesModule } from './roles/roles.module';
 import { RolesService } from './roles/roles.service';
 import { UserRolesModule } from './user-roles/user-roles.module';
 import { UserRolesService } from './user-roles/user-roles.service';
+import { AddressTypesModule } from './address-types/address-types.module';
+import { AddressTypesService } from './address-types/address-types.service';
 
 @Module({
   imports: [
@@ -39,8 +41,14 @@ import { UserRolesService } from './user-roles/user-roles.service';
     UsersModule,
     RolesModule,
     UserRolesModule,
+    AddressTypesModule,
   ],
   controllers: [],
-  providers: [UsersService, RolesService, UserRolesService],
+  providers: [
+    UsersService,
+    RolesService,
+    UserRolesService,
+    AddressTypesService,
+  ],
 })
 export class AppModule {}
