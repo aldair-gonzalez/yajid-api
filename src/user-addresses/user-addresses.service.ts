@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserAddressDto } from './dto/create-user_address.dto';
-import { UpdateUserAddressDto } from './dto/update-user_address.dto';
+import { CreateUserAddressDto } from './dto/create-user-address.dto';
+import { UpdateUserAddressDto } from './dto/update-user-address.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserAddress } from './entities/user_address.entity';
+import { UserAddress } from './entities/user-address.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()

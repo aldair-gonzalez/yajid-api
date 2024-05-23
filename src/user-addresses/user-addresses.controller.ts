@@ -11,9 +11,9 @@ import {
 } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
-import { UserAddressesService } from './user_addresses.service';
-import { CreateUserAddressDto } from './dto/create-user_address.dto';
-import { UpdateUserAddressDto } from './dto/update-user_address.dto';
+import { UserAddressesService } from './user-addresses.service';
+import { CreateUserAddressDto } from './dto/create-user-address.dto';
+import { UpdateUserAddressDto } from './dto/update-user-address.dto';
 import { ParseTrimFromDto } from 'src/utils/trim';
 
 @ApiTags('user addresses')
