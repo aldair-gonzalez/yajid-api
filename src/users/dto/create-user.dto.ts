@@ -23,6 +23,7 @@ export class CreateUserDto {
   @ApiProperty()
   email: string;
 
+  @IsOptional()
   @IsNumber()
   @ApiProperty()
   phone_number: number;
