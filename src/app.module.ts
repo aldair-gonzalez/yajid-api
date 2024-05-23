@@ -12,6 +12,8 @@ import { UserRolesModule } from './user-roles/user-roles.module';
 import { UserRolesService } from './user-roles/user-roles.service';
 import { AddressTypesModule } from './address-types/address-types.module';
 import { AddressTypesService } from './address-types/address-types.service';
+import { UserAddressesModule } from './user_addresses/user_addresses.module';
+import { UserAddressesService } from './user_addresses/user_addresses.service';
 
 @Module({
   imports: [
@@ -42,6 +44,7 @@ import { AddressTypesService } from './address-types/address-types.service';
     RolesModule,
     UserRolesModule,
     AddressTypesModule,
+    UserAddressesModule,
   ],
   controllers: [],
   providers: [
@@ -49,6 +52,7 @@ import { AddressTypesService } from './address-types/address-types.service';
     RolesService,
     UserRolesService,
     AddressTypesService,
+    UserAddressesService,
   ],
 })
 export class AppModule {}
