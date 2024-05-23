@@ -14,6 +14,8 @@ import { AddressTypesModule } from './address-types/address-types.module';
 import { AddressTypesService } from './address-types/address-types.service';
 import { UserAddressesModule } from './user-addresses/user-addresses.module';
 import { UserAddressesService } from './user-addresses/user-addresses.service';
+import { ActivityTypesModule } from './activity-types/activity-types.module';
+import { ActivityTypesService } from './activity-types/activity-types.service';
 
 @Module({
   imports: [
@@ -45,6 +47,7 @@ import { UserAddressesService } from './user-addresses/user-addresses.service';
     UserRolesModule,
     AddressTypesModule,
     UserAddressesModule,
+    ActivityTypesModule,
   ],
   controllers: [],
   providers: [
@@ -53,6 +56,7 @@ import { UserAddressesService } from './user-addresses/user-addresses.service';
     UserRolesService,
     AddressTypesService,
     UserAddressesService,
+    ActivityTypesService,
   ],
 })
 export class AppModule {}
