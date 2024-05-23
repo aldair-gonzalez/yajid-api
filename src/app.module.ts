@@ -8,6 +8,8 @@ import { UsersService } from './users/users.service';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { RolesService } from './roles/roles.service';
+import { UserRolesModule } from './user-roles/user-roles.module';
+import { UserRolesService } from './user-roles/user-roles.service';
 
 @Module({
   imports: [
@@ -36,8 +38,9 @@ import { RolesService } from './roles/roles.service';
     }),
     UsersModule,
     RolesModule,
+    UserRolesModule,
   ],
   controllers: [],
-  providers: [UsersService, RolesService],
+  providers: [UsersService, RolesService, UserRolesService],
 })
 export class AppModule {}
