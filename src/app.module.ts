@@ -16,6 +16,8 @@ import { UserAddressesModule } from './user-addresses/user-addresses.module';
 import { UserAddressesService } from './user-addresses/user-addresses.service';
 import { ActivityTypesModule } from './activity-types/activity-types.module';
 import { ActivityTypesService } from './activity-types/activity-types.service';
+import { UserActivityLogModule } from './user-activity-log/user-activity-log.module';
+import { UserActivityLogService } from './user-activity-log/user-activity-log.service';
 
 @Module({
   imports: [
@@ -48,6 +50,7 @@ import { ActivityTypesService } from './activity-types/activity-types.service';
     AddressTypesModule,
     UserAddressesModule,
     ActivityTypesModule,
+    UserActivityLogModule,
   ],
   controllers: [],
   providers: [
@@ -57,6 +60,7 @@ import { ActivityTypesService } from './activity-types/activity-types.service';
     AddressTypesService,
     UserAddressesService,
     ActivityTypesService,
+    UserActivityLogService,
   ],
 })
 export class AppModule {}
