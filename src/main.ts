@@ -13,7 +13,7 @@ async function bootstrap() {
 
   // Config Swagger API
   const config = new DocumentBuilder()
-    .setTitle('INVENTORIES API')
+    .setTitle('SUPER YAJID API')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);

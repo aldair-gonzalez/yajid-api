@@ -20,6 +20,8 @@ import { UserActivityLogModule } from './user-activity-log/user-activity-log.mod
 import { UserActivityLogService } from './user-activity-log/user-activity-log.service';
 import { BrandsModule } from './brands/brands.module';
 import { BrandsService } from './brands/brands.service';
+import { DepartmentsModule } from './departments/departments.module';
+import { DepartmentsService } from './departments/departments.service';
 
 @Module({
   imports: [
@@ -54,6 +56,7 @@ import { BrandsService } from './brands/brands.service';
     ActivityTypesModule,
     UserActivityLogModule,
     BrandsModule,
+    DepartmentsModule,
   ],
   controllers: [],
   providers: [
@@ -65,6 +68,7 @@ import { BrandsService } from './brands/brands.service';
     ActivityTypesService,
     UserActivityLogService,
     BrandsService,
+    DepartmentsService,
   ],
 })
 export class AppModule {}
