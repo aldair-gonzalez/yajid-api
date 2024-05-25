@@ -22,6 +22,8 @@ import { BrandsModule } from './brands/brands.module';
 import { BrandsService } from './brands/brands.service';
 import { DepartmentsModule } from './departments/departments.module';
 import { DepartmentsService } from './departments/departments.service';
+import { CategoriesModule } from './categories/categories.module';
+import { CategoriesService } from './categories/categories.service';
 
 @Module({
   imports: [
@@ -57,6 +59,7 @@ import { DepartmentsService } from './departments/departments.service';
     UserActivityLogModule,
     BrandsModule,
     DepartmentsModule,
+    CategoriesModule,
   ],
   controllers: [],
   providers: [
@@ -69,6 +72,7 @@ import { DepartmentsService } from './departments/departments.service';
     UserActivityLogService,
     BrandsService,
     DepartmentsService,
+    CategoriesService,
   ],
 })
 export class AppModule {}
