@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Department } from 'src/departments/entities/department.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('categories')
 export class Category {
@@ -10,4 +17,8 @@ export class Category {
 
   @Column()
   description: string;
+
+  @OneToOne(() => Department)
+  @JoinColumn({ name: 'department_id' })
+  department_id: number;
 }
