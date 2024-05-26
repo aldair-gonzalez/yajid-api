@@ -24,6 +24,8 @@ import { DepartmentsModule } from './departments/departments.module';
 import { DepartmentsService } from './departments/departments.service';
 import { CategoriesModule } from './categories/categories.module';
 import { CategoriesService } from './categories/categories.service';
+import { SubcategoriesModule } from './subcategories/subcategories.module';
+import { SubcategoriesService } from './subcategories/subcategories.service';
 
 @Module({
   imports: [
@@ -60,6 +62,7 @@ import { CategoriesService } from './categories/categories.service';
     BrandsModule,
     DepartmentsModule,
     CategoriesModule,
+    SubcategoriesModule,
   ],
   controllers: [],
   providers: [
@@ -73,6 +76,7 @@ import { CategoriesService } from './categories/categories.service';
     BrandsService,
     DepartmentsService,
     CategoriesService,
+    SubcategoriesService,
   ],
 })
 export class AppModule {}
