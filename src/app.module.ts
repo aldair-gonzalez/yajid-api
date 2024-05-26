@@ -26,6 +26,8 @@ import { CategoriesModule } from './categories/categories.module';
 import { CategoriesService } from './categories/categories.service';
 import { SubcategoriesModule } from './subcategories/subcategories.module';
 import { SubcategoriesService } from './subcategories/subcategories.service';
+import { SuppliersModule } from './suppliers/suppliers.module';
+import { SuppliersService } from './suppliers/suppliers.service';
 
 @Module({
   imports: [
@@ -63,6 +65,7 @@ import { SubcategoriesService } from './subcategories/subcategories.service';
     DepartmentsModule,
     CategoriesModule,
     SubcategoriesModule,
+    SuppliersModule,
   ],
   controllers: [],
   providers: [
@@ -77,6 +80,7 @@ import { SubcategoriesService } from './subcategories/subcategories.service';
     DepartmentsService,
     CategoriesService,
     SubcategoriesService,
+    SuppliersService,
   ],
 })
 export class AppModule {}
