@@ -28,6 +28,8 @@ import { SubcategoriesModule } from './subcategories/subcategories.module';
 import { SubcategoriesService } from './subcategories/subcategories.service';
 import { SuppliersModule } from './suppliers/suppliers.module';
 import { SuppliersService } from './suppliers/suppliers.service';
+import { ProductsModule } from './products/products.module';
+import { ProductsService } from './products/products.service';
 
 @Module({
   imports: [
@@ -66,6 +68,7 @@ import { SuppliersService } from './suppliers/suppliers.service';
     CategoriesModule,
     SubcategoriesModule,
     SuppliersModule,
+    ProductsModule,
   ],
   controllers: [],
   providers: [
@@ -81,6 +84,7 @@ import { SuppliersService } from './suppliers/suppliers.service';
     CategoriesService,
     SubcategoriesService,
     SuppliersService,
+    ProductsService,
   ],
 })
 export class AppModule {}
