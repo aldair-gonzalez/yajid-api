@@ -30,6 +30,8 @@ import { SuppliersModule } from './suppliers/suppliers.module';
 import { SuppliersService } from './suppliers/suppliers.service';
 import { ProductsModule } from './products/products.module';
 import { ProductsService } from './products/products.service';
+import { InventoriesModule } from './inventories/inventories.module';
+import { Inventory } from './inventories/entities/inventory.entity';
 
 @Module({
   imports: [
@@ -69,6 +71,7 @@ import { ProductsService } from './products/products.service';
     SubcategoriesModule,
     SuppliersModule,
     ProductsModule,
+    InventoriesModule,
   ],
   controllers: [],
   providers: [
@@ -85,6 +88,7 @@ import { ProductsService } from './products/products.service';
     SubcategoriesService,
     SuppliersService,
     ProductsService,
+    Inventory,
   ],
 })
 export class AppModule {}
