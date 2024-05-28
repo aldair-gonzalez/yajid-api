@@ -34,6 +34,8 @@ import { InventoriesModule } from './inventories/inventories.module';
 import { InventoriesService } from './inventories/inventories.service';
 import { PackagesModule } from './packages/packages.module';
 import { PackagesService } from './packages/packages.service';
+import { PackageProductsModule } from './package-products/package-products.module';
+import { PackageProductsService } from './package-products/package-products.service';
 
 @Module({
   imports: [
@@ -75,6 +77,7 @@ import { PackagesService } from './packages/packages.service';
     ProductsModule,
     InventoriesModule,
     PackagesModule,
+    PackageProductsModule,
   ],
   controllers: [],
   providers: [
@@ -93,6 +96,7 @@ import { PackagesService } from './packages/packages.service';
     ProductsService,
     InventoriesService,
     PackagesService,
+    PackageProductsService,
   ],
 })
 export class AppModule {}
