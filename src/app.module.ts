@@ -31,7 +31,7 @@ import { SuppliersService } from './suppliers/suppliers.service';
 import { ProductsModule } from './products/products.module';
 import { ProductsService } from './products/products.service';
 import { InventoriesModule } from './inventories/inventories.module';
-import { Inventory } from './inventories/entities/inventory.entity';
+import { InventoriesService } from './inventories/inventories.service';
 import { PackagesModule } from './packages/packages.module';
 import { PackagesService } from './packages/packages.service';
 
@@ -91,7 +91,7 @@ import { PackagesService } from './packages/packages.service';
     SubcategoriesService,
     SuppliersService,
     ProductsService,
-    Inventory,
+    InventoriesService,
     PackagesService,
   ],
 })
