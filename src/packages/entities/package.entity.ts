@@ -1,9 +1,16 @@
-import { Column, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { Category } from 'src/categories/entities/category.entity';
 import { Department } from 'src/departments/entities/department.entity';
 import { Subcategory } from 'src/subcategories/entities/subcategory.entity';
 
+@Entity('packages')
 export class Package {
   @PrimaryGeneratedColumn()
   package_id: number;
