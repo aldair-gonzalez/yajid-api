@@ -50,6 +50,8 @@ import { ProductDiscountsModule } from './product-discounts/product-discounts.mo
 import { ProductDiscountsService } from './product-discounts/product-discounts.service';
 import { PackageDiscountsModule } from './package-discounts/package-discounts.module';
 import { PackageDiscountsService } from './package-discounts/package-discounts.service';
+import { ProductPriceHistoryModule } from './product-price-history/product-price-history.module';
+import { ProductPriceHistoryService } from './product-price-history/product-price-history.service';
 
 @Module({
   imports: [
@@ -99,6 +101,7 @@ import { PackageDiscountsService } from './package-discounts/package-discounts.s
     DiscountsModule,
     ProductDiscountsModule,
     PackageDiscountsModule,
+    ProductPriceHistoryModule,
   ],
   controllers: [],
   providers: [
@@ -125,6 +128,7 @@ import { PackageDiscountsService } from './package-discounts/package-discounts.s
     DiscountsService,
     ProductDiscountsService,
     PackageDiscountsService,
+    ProductPriceHistoryService,
   ],
 })
 export class AppModule {}
