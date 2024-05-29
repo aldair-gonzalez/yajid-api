@@ -37,7 +37,7 @@ import { PackagesService } from './packages/packages.service';
 import { PackageProductsModule } from './package-products/package-products.module';
 import { PackageProductsService } from './package-products/package-products.service';
 import { ProductAttributesModule } from './product-attributes/product-attributes.module';
-import { ProductAttribute } from './product-attributes/entities/product-attribute.entity';
+import { ProductAttributesService } from './product-attributes/product-attributes.service';
 import { ProductAttributeValuesModule } from './product-attribute-values/product-attribute-values.module';
 import { ProductAttributeValuesService } from './product-attribute-values/product-attribute-values.service';
 
@@ -103,7 +103,7 @@ import { ProductAttributeValuesService } from './product-attribute-values/produc
     InventoriesService,
     PackagesService,
     PackageProductsService,
-    ProductAttribute,
+    ProductAttributesService,
     ProductAttributeValuesService,
   ],
 })
