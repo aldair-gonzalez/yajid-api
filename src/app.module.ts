@@ -48,6 +48,8 @@ import { DiscountsModule } from './discounts/discounts.module';
 import { DiscountsService } from './discounts/discounts.service';
 import { ProductDiscountsModule } from './product-discounts/product-discounts.module';
 import { ProductDiscountsService } from './product-discounts/product-discounts.service';
+import { PackageDiscountsModule } from './package-discounts/package-discounts.module';
+import { PackageDiscountsService } from './package-discounts/package-discounts.service';
 
 @Module({
   imports: [
@@ -96,6 +98,7 @@ import { ProductDiscountsService } from './product-discounts/product-discounts.s
     PackageImagesModule,
     DiscountsModule,
     ProductDiscountsModule,
+    PackageDiscountsModule,
   ],
   controllers: [],
   providers: [
@@ -121,6 +124,7 @@ import { ProductDiscountsService } from './product-discounts/product-discounts.s
     PackageImagesService,
     DiscountsService,
     ProductDiscountsService,
+    PackageDiscountsService,
   ],
 })
 export class AppModule {}
