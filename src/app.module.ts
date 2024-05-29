@@ -40,6 +40,8 @@ import { ProductAttributesModule } from './product-attributes/product-attributes
 import { ProductAttributesService } from './product-attributes/product-attributes.service';
 import { ProductAttributeValuesModule } from './product-attribute-values/product-attribute-values.module';
 import { ProductAttributeValuesService } from './product-attribute-values/product-attribute-values.service';
+import { ProductImagesModule } from './product-images/product-images.module';
+import { ProductImagesService } from './product-images/product-images.service';
 
 @Module({
   imports: [
@@ -84,6 +86,7 @@ import { ProductAttributeValuesService } from './product-attribute-values/produc
     PackageProductsModule,
     ProductAttributesModule,
     ProductAttributeValuesModule,
+    ProductImagesModule,
   ],
   controllers: [],
   providers: [
@@ -105,6 +108,7 @@ import { ProductAttributeValuesService } from './product-attribute-values/produc
     PackageProductsService,
     ProductAttributesService,
     ProductAttributeValuesService,
+    ProductImagesService,
   ],
 })
 export class AppModule {}
