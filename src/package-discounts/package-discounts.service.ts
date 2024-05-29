@@ -18,12 +18,15 @@ export class PackageDiscountsService {
   }
 
   async findAll() {
-    return await this.packageDiscountRepository.find();
+    return await this.packageDiscountRepository.find({
+      relations: ['package_id', 'discount_id'],
+    });
   }
 
   async findOne(package_discount_id: number) {
     return await this.packageDiscountRepository.findOne({
       where: { package_discount_id },
+      relations: ['package_id', 'discount_id'],
     });
   }
 
