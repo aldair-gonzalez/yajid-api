@@ -46,6 +46,8 @@ import { PackageImagesModule } from './package-images/package-images.module';
 import { PackageImagesService } from './package-images/package-images.service';
 import { DiscountsModule } from './discounts/discounts.module';
 import { DiscountsService } from './discounts/discounts.service';
+import { ProductDiscountsModule } from './product-discounts/product-discounts.module';
+import { ProductDiscountsService } from './product-discounts/product-discounts.service';
 
 @Module({
   imports: [
@@ -93,6 +95,7 @@ import { DiscountsService } from './discounts/discounts.service';
     ProductImagesModule,
     PackageImagesModule,
     DiscountsModule,
+    ProductDiscountsModule,
   ],
   controllers: [],
   providers: [
@@ -117,6 +120,7 @@ import { DiscountsService } from './discounts/discounts.service';
     ProductImagesService,
     PackageImagesService,
     DiscountsService,
+    ProductDiscountsService,
   ],
 })
 export class AppModule {}
