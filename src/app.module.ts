@@ -38,6 +38,8 @@ import { PackageProductsModule } from './package-products/package-products.modul
 import { PackageProductsService } from './package-products/package-products.service';
 import { ProductAttributesModule } from './product-attributes/product-attributes.module';
 import { ProductAttribute } from './product-attributes/entities/product-attribute.entity';
+import { ProductAttributeValuesModule } from './product-attribute-values/product-attribute-values.module';
+import { ProductAttributeValuesService } from './product-attribute-values/product-attribute-values.service';
 
 @Module({
   imports: [
@@ -81,6 +83,7 @@ import { ProductAttribute } from './product-attributes/entities/product-attribut
     PackagesModule,
     PackageProductsModule,
     ProductAttributesModule,
+    ProductAttributeValuesModule,
   ],
   controllers: [],
   providers: [
@@ -101,6 +104,7 @@ import { ProductAttribute } from './product-attributes/entities/product-attribut
     PackagesService,
     PackageProductsService,
     ProductAttribute,
+    ProductAttributeValuesService,
   ],
 })
 export class AppModule {}
