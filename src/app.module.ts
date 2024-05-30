@@ -60,6 +60,8 @@ import { CartProductsModule } from './cart-products/cart-products.module';
 import { CartProductsService } from './cart-products/cart-products.service';
 import { OrderStatusModule } from './order-status/order-status.module';
 import { OrderStatusService } from './order-status/order-status.service';
+import { OrdersModule } from './orders/orders.module';
+import { OrdersService } from './orders/orders.service';
 
 @Module({
   imports: [
@@ -114,6 +116,7 @@ import { OrderStatusService } from './order-status/order-status.service';
     ShoppingCartsModule,
     CartProductsModule,
     OrderStatusModule,
+    OrdersModule,
   ],
   controllers: [],
   providers: [
@@ -145,6 +148,7 @@ import { OrderStatusService } from './order-status/order-status.service';
     ShoppingCartsService,
     CartProductsService,
     OrderStatusService,
+    OrdersService,
   ],
 })
 export class AppModule {}
