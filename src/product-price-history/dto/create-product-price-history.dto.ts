@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsDate, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsNumber } from 'class-validator';
 
 export class CreateProductPriceHistoryDto {
   @IsNotEmpty()
@@ -11,11 +11,6 @@ export class CreateProductPriceHistoryDto {
   @IsNumber()
   @ApiProperty()
   new_price: number;
-
-  @IsNotEmpty()
-  @IsDate()
-  @ApiProperty()
-  change_date: Date;
 
   @IsNotEmpty()
   @IsNumber()
