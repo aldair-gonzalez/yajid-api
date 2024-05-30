@@ -54,6 +54,8 @@ import { ProductPriceHistoryModule } from './product-price-history/product-price
 import { ProductPriceHistoryService } from './product-price-history/product-price-history.service';
 import { PackagePriceHistoryModule } from './package-price-history/package-price-history.module';
 import { PackagePriceHistoryService } from './package-price-history/package-price-history.service';
+import { ShoppingCartsModule } from './shopping-carts/shopping-carts.module';
+import { ShoppingCartsService } from './shopping-carts/shopping-carts.service';
 
 @Module({
   imports: [
@@ -105,6 +107,7 @@ import { PackagePriceHistoryService } from './package-price-history/package-pric
     PackageDiscountsModule,
     ProductPriceHistoryModule,
     PackagePriceHistoryModule,
+    ShoppingCartsModule,
   ],
   controllers: [],
   providers: [
@@ -133,6 +136,7 @@ import { PackagePriceHistoryService } from './package-price-history/package-pric
     PackageDiscountsService,
     ProductPriceHistoryService,
     PackagePriceHistoryService,
+    ShoppingCartsService,
   ],
 })
 export class AppModule {}
