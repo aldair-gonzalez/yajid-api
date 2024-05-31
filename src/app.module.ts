@@ -68,6 +68,8 @@ import { PurchaseStatesModule } from './purchase-states/purchase-states.module';
 import { PurchaseStatesService } from './purchase-states/purchase-states.service';
 import { PurchaseHistoryModule } from './purchase-history/purchase-history.module';
 import { PurchaseHistoryService } from './purchase-history/purchase-history.service';
+import { PurchaseDetailsModule } from './purchase-details/purchase-details.module';
+import { PurchaseDetailsService } from './purchase-details/purchase-details.service';
 
 @Module({
   imports: [
@@ -126,6 +128,7 @@ import { PurchaseHistoryService } from './purchase-history/purchase-history.serv
     OrderLinesModule,
     PurchaseStatesModule,
     PurchaseHistoryModule,
+    PurchaseDetailsModule,
   ],
   controllers: [],
   providers: [
@@ -161,6 +164,7 @@ import { PurchaseHistoryService } from './purchase-history/purchase-history.serv
     OrderLinesService,
     PurchaseStatesService,
     PurchaseHistoryService,
+    PurchaseDetailsService,
   ],
 })
 export class AppModule {}
