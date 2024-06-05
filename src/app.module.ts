@@ -72,6 +72,7 @@ import { PurchaseDetailsModule } from './purchase-details/purchase-details.modul
 import { PurchaseDetailsService } from './purchase-details/purchase-details.service';
 import { VisitStatisticsModule } from './visit-statistics/visit-statistics.module';
 import { VisitStatisticsService } from './visit-statistics/visit-statistics.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -132,6 +133,7 @@ import { VisitStatisticsService } from './visit-statistics/visit-statistics.serv
     PurchaseHistoryModule,
     PurchaseDetailsModule,
     VisitStatisticsModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [
