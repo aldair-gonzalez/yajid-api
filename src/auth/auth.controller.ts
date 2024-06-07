@@ -50,7 +50,13 @@ export class AuthController {
   @ApiOperation({ summary: 'Get profile' })
   @ApiBearerAuth()
   @UseGuards(LocalAuthGuard)
-  getProfile(@Request() req: any) {
-    return req.user;
+  async getProfile(@Request() req: any) {
+    try {
+      return await this.authService.getProfile(req.user.sub);
+    } catch (error) {
+      if (error.name || error.sqlState)
+        throw new BadRequestException(error.message);
+      throw error;
+    }
   }
 }
