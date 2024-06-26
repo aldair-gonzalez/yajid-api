@@ -14,25 +14,43 @@ export class PurchaseHistory {
   @PrimaryGeneratedColumn()
   purchase_id: number;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    nullable: false,
+    update: false,
+  })
   purchase_date: Date;
 
   @Column({
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
+    update: false,
   })
   total_price: number;
 
-  @OneToOne(() => User)
+  @OneToOne(() => User, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'user_id' })
   user_id: number;
 
-  @OneToOne(() => Order)
+  @OneToOne(() => Order, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'order_id' })
   order_id: number;
 
-  @OneToOne(() => PurchaseState)
+  @OneToOne(() => PurchaseState, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'purchase_state_id' })
   purchase_state_id: number;
 }
