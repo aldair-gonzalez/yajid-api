@@ -7,4 +7,8 @@ export default () => ({
     password: process.env.DATABASE_PASSWORD || 'root',
     database: process.env.DATABASE_NAME || 'database',
   },
+  jwt: {
+    secret: process.env.JWT_SECRET || 'secret',
+    expiresIn: process.env.JWT_EXPIRES_IN || '1d',
+  },
 });
