@@ -27,9 +27,16 @@ export class UsersService {
     });
   }
 
-  async findOneByEmail(email: string) {
+  async findOneByEmail({
+    email,
+    getProfileForLogin,
+  }: {
+    email: string;
+    getProfileForLogin?: boolean;
+  }) {
     return await this.usersRepository.findOne({
       where: { email },
+      select: getProfileForLogin && ['user_id', 'name', 'email', 'password'],
     });
   }
 
