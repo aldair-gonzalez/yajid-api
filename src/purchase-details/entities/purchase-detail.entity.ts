@@ -1,4 +1,6 @@
 import {
+  BeforeInsert,
+  BeforeUpdate,
   Column,
   Entity,
   JoinColumn,
@@ -18,6 +20,8 @@ export class PurchaseDetail {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
+    update: false,
   })
   quantity: number;
 
@@ -25,6 +29,8 @@ export class PurchaseDetail {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
+    update: false,
   })
   unit_price: number;
 
@@ -32,6 +38,7 @@ export class PurchaseDetail {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: true,
   })
   total_price: number;
 
@@ -39,17 +46,47 @@ export class PurchaseDetail {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: true,
+    default: 0,
+    update: false,
   })
   discount_applied: number;
 
-  @Column()
+  @Column({
+    type: 'enum',
+    nullable: true,
+    update: false,
+    enum: ['percentage', 'fixed_amount'],
+  })
   discount_type: string;
 
-  @OneToOne(() => PurchaseHistory)
+  @OneToOne(() => PurchaseHistory, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'purchase_id' })
   purchase_id: number;
 
-  @OneToOne(() => Product)
+  @OneToOne(() => Product, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'product_id' })
   product_id: number;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  private calculateTotalPrice() {
+    if (this.unit_price && this.quantity) {
+      if (this.discount_type === 'percentage') {
+        this.total_price =
+          this.quantity * this.unit_price * (1 - this.discount_applied / 100);
+        return;
+      }
+      this.total_price =
+        this.quantity * this.unit_price - this.discount_applied;
+    }
+  }
 }
