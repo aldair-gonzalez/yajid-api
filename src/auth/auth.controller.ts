@@ -7,14 +7,14 @@ import {
   HttpStatus,
   Post,
   Request,
-  UseGuards,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { AuthService } from './auth.service';
 import { SignInDto } from './dto/sign-in.dto';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
-import { LocalAuthGuard } from './local-auth/local-auth.guard';
+import { Role } from 'src/common/enums/role.enum';
+import { Auth } from 'src/common/decorators/auth/auth.decorator';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -47,9 +47,8 @@ export class AuthController {
   }
 
   @Get('profile')
+  @Auth(Role.USER)
   @ApiOperation({ summary: 'Get profile' })
-  @ApiBearerAuth()
-  @UseGuards(LocalAuthGuard)
   async getProfile(@Request() req: any) {
     try {
       return await this.authService.getProfile(req.user.sub);
