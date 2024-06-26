@@ -30,6 +30,13 @@ export class UserRolesService {
     });
   }
 
+  async findRolesByUserId(user_id: number) {
+    return await this.userRoleRepository.find({
+      where: { user_id },
+      relations: ['role_id'],
+    });
+  }
+
   async update(user_role_id: number, updateUserRoleDto: UpdateUserRoleDto) {
     return await this.userRoleRepository.update(
       user_role_id,
