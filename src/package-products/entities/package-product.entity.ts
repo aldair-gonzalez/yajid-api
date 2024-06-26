@@ -18,14 +18,23 @@ export class PackageProduct {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
   })
   quantity: number;
 
-  @OneToOne(() => Package)
+  @OneToOne(() => Package, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'package_id' })
   package_id: number;
 
-  @OneToOne(() => Product)
+  @OneToOne(() => Product, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'product_id' })
   product_id: number;
 }
