@@ -5,10 +5,10 @@ export class CreateUserRoleDto {
   @IsNotEmpty()
   @IsNumber()
   @ApiProperty()
-  role_id: number;
+  role_id: any;
 
   @IsNotEmpty()
   @IsNumber()
   @ApiProperty()
-  user_id: number;
+  user_id: any;
 }
