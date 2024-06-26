@@ -13,16 +13,31 @@ export class PackageImage {
   @PrimaryGeneratedColumn()
   package_image_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   image_name: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   description: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   url: string;
 
-  @OneToOne(() => Package)
+  @OneToOne(() => Package, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'package_id' })
   package_id: number;
 }
