@@ -5,12 +5,24 @@ export class ProductAttribute {
   @PrimaryGeneratedColumn()
   attribute_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+    unique: true,
+  })
   name: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   description: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 50,
+    nullable: true,
+  })
   attribute_type: string;
 }
