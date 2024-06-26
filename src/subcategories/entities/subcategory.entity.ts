@@ -12,13 +12,24 @@ export class Subcategory {
   @PrimaryGeneratedColumn()
   subcategory_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   subcategory_name: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   description: string;
 
-  @OneToOne(() => Category)
+  @OneToOne(() => Category, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'category_id' })
   category_id: number;
 }
