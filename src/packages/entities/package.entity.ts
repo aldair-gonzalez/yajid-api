@@ -15,40 +15,76 @@ export class Package {
   @PrimaryGeneratedColumn()
   package_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   package_name: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: false,
+  })
   description: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: false,
+  })
   description_brief: string;
 
   @Column({
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
   })
   price: number;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    nullable: true,
+    update: false,
+  })
   created_at: Date;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+    nullable: true,
+  })
   updated_at: Date;
 
-  @Column()
+  @Column({
+    type: 'boolean',
+    default: true,
+  })
   is_active: boolean;
 
-  @OneToOne(() => Department)
+  @OneToOne(() => Department, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'department_id' })
   department_id: number;
 
-  @OneToOne(() => Category)
+  @OneToOne(() => Category, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'category_id' })
   category_id: number;
 
-  @OneToOne(() => Subcategory)
+  @OneToOne(() => Subcategory, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'subcategory_id' })
   subcategory_id: number;
 }

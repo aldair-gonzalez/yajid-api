@@ -17,6 +17,8 @@ export class ProductPriceHistory {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
+    update: false,
   })
   old_price: number;
 
@@ -24,13 +26,24 @@ export class ProductPriceHistory {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
+    update: false,
   })
   new_price: number;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    nullable: true,
+    update: false,
+  })
   change_date: Date;
 
-  @OneToOne(() => Product)
+  @OneToOne(() => Product, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'product_id' })
   product_id: number;
 }

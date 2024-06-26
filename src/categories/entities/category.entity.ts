@@ -12,13 +12,24 @@ export class Category {
   @PrimaryGeneratedColumn()
   category_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   category_name: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   description: string;
 
-  @OneToOne(() => Department)
+  @OneToOne(() => Department, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'department_id' })
   department_id: number;
 }

@@ -7,11 +7,15 @@ export class UserRole {
   @PrimaryGeneratedColumn()
   user_role_id: number;
 
-  @OneToOne(() => Role)
+  @OneToOne(() => Role, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'role_id' })
-  role_id: number;
+  role_id: any;
 
-  @OneToOne(() => User)
+  @OneToOne(() => User, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'user_id' })
-  user_id: number;
+  user_id: any;
 }

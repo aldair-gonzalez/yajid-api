@@ -5,9 +5,17 @@ export class Role {
   @PrimaryGeneratedColumn()
   role_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 250,
+    unique: true,
+    nullable: false,
+  })
   role_name: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   description: string;
 }

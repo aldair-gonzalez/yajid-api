@@ -1,4 +1,6 @@
 import {
+  BeforeInsert,
+  BeforeUpdate,
   Column,
   Entity,
   JoinColumn,
@@ -18,6 +20,8 @@ export class OrderLine {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
+    update: false,
   })
   quantity: number;
 
@@ -25,6 +29,8 @@ export class OrderLine {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
+    update: false,
   })
   price: number;
 
@@ -32,14 +38,33 @@ export class OrderLine {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: true,
   })
   order_line_total: number;
 
-  @OneToOne(() => Order)
+  @OneToOne(() => Order, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'order_id' })
   order_id: number;
 
-  @OneToOne(() => Product)
+  @OneToOne(() => Product, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'product_id' })
   product_id: number;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  private calculateOrderLineTotal() {
+    if (this.quantity && this.price) {
+      this.order_line_total = this.quantity * this.price;
+    } else {
+      this.order_line_total = null;
+    }
+  }
 }

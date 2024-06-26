@@ -6,6 +6,7 @@ export function ParseTrimFromDto(dto: any) {
   }
   const keys = Object.keys(dto);
   Object.values(dto).map((value, i) => {
+    if (keys[i] === 'password') return;
     dto[keys[i]] = generatedTrim(value);
   });
 }

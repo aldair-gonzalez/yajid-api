@@ -17,6 +17,7 @@ export class Inventory {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
   })
   stock: number;
 
@@ -24,26 +25,49 @@ export class Inventory {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
   })
   unit_cost: number;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    nullable: false,
+  })
   purchase_date: Date;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+    nullable: true,
+  })
   updated_at: Date;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    nullable: true,
+  })
   expiration_date: Date;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   comments: string;
 
-  @OneToOne(() => Product)
+  @OneToOne(() => Product, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'product_id' })
   product_id: number;
 
-  @OneToOne(() => Supplier)
+  @OneToOne(() => Supplier, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'supplier_id' })
   supplier_id: number;
 }

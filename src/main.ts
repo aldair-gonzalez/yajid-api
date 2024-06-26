@@ -19,6 +19,14 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('SUPER YAJID API')
     .setVersion('1.0')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      in: 'header',
+      name: 'Authorization',
+      description: 'Enter JWT token',
+    })
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/', app, document);

@@ -72,6 +72,41 @@ import { PurchaseDetailsModule } from './purchase-details/purchase-details.modul
 import { PurchaseDetailsService } from './purchase-details/purchase-details.service';
 import { VisitStatisticsModule } from './visit-statistics/visit-statistics.module';
 import { VisitStatisticsService } from './visit-statistics/visit-statistics.service';
+import { AuthModule } from './auth/auth.module';
+
+import { User } from './users/entities/user.entity';
+import { Role } from './roles/entities/role.entity';
+import { AddressType } from './address-types/entities/address-type.entity';
+import { UserAddress } from './user-addresses/entities/user-address.entity';
+import { ActivityType } from './activity-types/entities/activity-type.entity';
+import { UserActivityLog } from './user-activity-log/entities/user-activity-log.entity';
+import { Brand } from './brands/entities/brand.entity';
+import { Department } from './departments/entities/department.entity';
+import { Category } from './categories/entities/category.entity';
+import { Subcategory } from './subcategories/entities/subcategory.entity';
+import { Supplier } from './suppliers/entities/supplier.entity';
+import { Product } from './products/entities/product.entity';
+import { Inventory } from './inventories/entities/inventory.entity';
+import { Package } from './packages/entities/package.entity';
+import { PackageProduct } from './package-products/entities/package-product.entity';
+import { ProductAttribute } from './product-attributes/entities/product-attribute.entity';
+import { ProductAttributeValue } from './product-attribute-values/entities/product-attribute-value.entity';
+import { ProductImage } from './product-images/entities/product-image.entity';
+import { PackageImage } from './package-images/entities/package-image.entity';
+import { Discount } from './discounts/entities/discount.entity';
+import { ProductDiscount } from './product-discounts/entities/product-discount.entity';
+import { PackageDiscount } from './package-discounts/entities/package-discount.entity';
+import { ProductPriceHistory } from './product-price-history/entities/product-price-history.entity';
+import { PackagePriceHistory } from './package-price-history/entities/package-price-history.entity';
+import { ShoppingCart } from './shopping-carts/entities/shopping-cart.entity';
+import { CartProduct } from './cart-products/entities/cart-product.entity';
+import { OrderStatus } from './order-status/entities/order-status.entity';
+import { Order } from './orders/entities/order.entity';
+import { OrderLine } from './order-lines/entities/order-line.entity';
+import { PurchaseState } from './purchase-states/entities/purchase-state.entity';
+import { PurchaseHistory } from './purchase-history/entities/purchase-history.entity';
+import { PurchaseDetail } from './purchase-details/entities/purchase-detail.entity';
+import { VisitStatistic } from './visit-statistics/entities/visit-statistic.entity';
 
 @Module({
   imports: [
@@ -93,7 +128,42 @@ import { VisitStatisticsService } from './visit-statistics/visit-statistics.serv
       useFactory: () => ({
         type: 'mysql',
         ...configuration().database,
-        entities: [],
+        entities: [
+          User,
+          Role,
+          AddressType,
+          UserAddress,
+          ActivityType,
+          UserActivityLog,
+          Brand,
+          Department,
+          Category,
+          Subcategory,
+          Supplier,
+          Product,
+          Inventory,
+          Package,
+          PackageProduct,
+          ProductAttribute,
+          ProductAttributeValue,
+          ProductImage,
+          PackageImage,
+          Discount,
+          ProductDiscount,
+          PackageDiscount,
+          ProductPriceHistory,
+          PackagePriceHistory,
+          ShoppingCart,
+          CartProduct,
+          OrderStatus,
+          Order,
+          OrderLine,
+          PurchaseState,
+          PurchaseHistory,
+          PurchaseDetail,
+          VisitStatistic,
+        ],
+        synchronize: true,
         autoLoadEntities: true,
       }),
       inject: [ConfigService],
@@ -132,6 +202,7 @@ import { VisitStatisticsService } from './visit-statistics/visit-statistics.serv
     PurchaseHistoryModule,
     PurchaseDetailsModule,
     VisitStatisticsModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [

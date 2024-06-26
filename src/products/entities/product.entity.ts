@@ -16,31 +16,45 @@ export class Product {
   @PrimaryGeneratedColumn()
   product_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   product_name: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: false,
+  })
   description: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: false,
+  })
   description_brief: string;
 
   @Column({
     type: 'decimal',
     precision: 10,
     scale: 2,
-    default: 0,
+    nullable: false,
   })
   price: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 50,
+    nullable: false,
+  })
   sale_unit_type: string;
 
   @Column({
     type: 'decimal',
     precision: 10,
     scale: 2,
-    default: 0,
+    nullable: false,
   })
   stock: number;
 
@@ -48,28 +62,63 @@ export class Product {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: true,
     default: 0,
   })
   low_stock_threshold: number;
 
   @Column({
+    type: 'boolean',
+    nullable: true,
     default: true,
   })
   is_active: boolean;
 
-  @OneToOne(() => Brand)
+  @Column({
+    type: 'timestamp',
+    nullable: true,
+    default: () => 'CURRENT_TIMESTAMP',
+    update: false,
+  })
+  created_at: Date;
+
+  @Column({
+    type: 'timestamp',
+    nullable: true,
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
+  updated_at: Date;
+
+  @OneToOne(() => Brand, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'brand_id' })
   brand_id: number;
 
-  @OneToOne(() => Department)
+  @OneToOne(() => Department, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'department_id' })
   department_id: number;
 
-  @OneToOne(() => Category)
+  @OneToOne(() => Category, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'category_id' })
   category_id: number;
 
-  @OneToOne(() => Subcategory)
+  @OneToOne(() => Subcategory, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'subcategory_id' })
   subcategory_id: number;
 }
