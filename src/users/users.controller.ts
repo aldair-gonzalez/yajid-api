@@ -27,7 +27,9 @@ export class UsersController {
   async create(@Body() createUserDto: CreateUserDto) {
     try {
       ParseTrimFromDto(createUserDto);
-      return await this.usersService.create(createUserDto);
+      const { password, ...user } =
+        await this.usersService.create(createUserDto);
+      return user;
     } catch (error) {
       if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
@@ -39,7 +41,11 @@ export class UsersController {
   @Get()
   async findAll() {
     try {
-      return await this.usersService.findAll();
+      const users = await this.usersService.findAll();
+      return users.map((user) => {
+        const { password, ...userData } = user;
+        return userData;
+      });
     } catch (error) {
       if (error.name || error.sqlState)
         throw new BadRequestException(error.message);
@@ -53,7 +59,7 @@ export class UsersController {
     try {
       if (isNaN(user_id))
         throw new BadRequestException('user_id should be a number');
-      const user = await this.usersService.findOne(user_id);
+      const { password, ...user } = await this.usersService.findOne(user_id);
       if (!user) throw new NotFoundException('user not found');
       return user;
     } catch (error) {
