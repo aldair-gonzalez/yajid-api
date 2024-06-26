@@ -42,6 +42,7 @@ export class CreateUserDto {
   })
   phone_number: number;
 
+  @Transform(({ value }) => value.trim())
   @IsOptional()
   @IsString()
   @MinLength(6)
