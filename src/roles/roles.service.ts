@@ -26,6 +26,12 @@ export class RolesService {
     });
   }
 
+  async findOneByName(role_name: string) {
+    return await this.roleRepository.findOne({
+      where: { role_name },
+    });
+  }
+
   async update(role_id: number, updateRoleDto: UpdateRoleDto) {
     return await this.roleRepository.update(role_id, updateRoleDto);
   }
