@@ -5,9 +5,16 @@ export class ActivityType {
   @PrimaryGeneratedColumn()
   activity_type_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   name: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   description: string;
 }
