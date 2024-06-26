@@ -18,17 +18,30 @@ export class CartProduct {
     type: 'decimal',
     precision: 10,
     scale: 2,
+    nullable: false,
   })
   quantity: number;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    nullable: true,
+  })
   added_at: Date;
 
-  @OneToOne(() => ShoppingCart)
+  @OneToOne(() => ShoppingCart, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'cart_id' })
   cart_id: number;
 
-  @OneToOne(() => Product)
+  @OneToOne(() => Product, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'product_id' })
   product_id: number;
 }
