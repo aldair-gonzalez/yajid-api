@@ -13,35 +13,73 @@ export class UserAddress {
   @PrimaryGeneratedColumn()
   user_address_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   address: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   city: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   state: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   country: string;
 
-  @Column()
+  @Column({
+    type: 'int',
+    nullable: false,
+  })
   postal_code: number;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   comment: string;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    update: false,
+  })
   created_at: Date;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
   updated_at: Date;
 
-  @OneToOne(() => User)
+  @OneToOne(() => User, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'user_id' })
   user_id: number;
 
-  @OneToOne(() => AddressType)
+  @OneToOne(() => AddressType, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'address_type_id' })
   address_type_id: number;
 }
