@@ -14,14 +14,26 @@ export class ProductAttributeValue {
   @PrimaryGeneratedColumn()
   attribute_value_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   value: string;
 
-  @OneToOne(() => ProductAttribute)
+  @OneToOne(() => ProductAttribute, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'attribute_id' })
   attribute_id: number;
 
-  @OneToOne(() => Product)
+  @OneToOne(() => Product, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'product_id' })
   product_id: number;
 }
