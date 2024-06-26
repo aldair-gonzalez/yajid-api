@@ -5,27 +5,59 @@ export class User {
   @PrimaryGeneratedColumn()
   user_id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   name: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: false,
+  })
   last_name: string;
 
-  @Column({ unique: true })
+  @Column({
+    type: 'varchar',
+    length: 255,
+    unique: true,
+    nullable: false,
+  })
   email: string;
 
-  @Column({ unique: true })
+  @Column({
+    type: 'varchar',
+    length: 20,
+    unique: true,
+  })
   phone_number: number;
 
-  @Column({ select: false })
+  @Column({
+    type: 'varchar',
+    length: 255,
+    select: false,
+  })
   password: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 255,
+  })
   provider: string;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    update: false,
+  })
   created_at: Date;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
   updated_at: Date;
 }
