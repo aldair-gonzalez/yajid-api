@@ -15,27 +15,57 @@ export class Order {
   @PrimaryGeneratedColumn()
   order_id: number;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    nullable: true,
+    update: false,
+  })
   created_at: Date;
 
-  @Column()
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+    nullable: true,
+  })
   updated_at: Date;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+    update: false,
+  })
   shipping_details: string;
 
-  @Column()
+  @Column({
+    type: 'text',
+    nullable: true,
+    update: false,
+  })
   payment_details: string;
 
-  @OneToOne(() => User)
+  @OneToOne(() => User, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'user_id' })
   user_id: number;
 
-  @OneToOne(() => ShoppingCart)
+  @OneToOne(() => ShoppingCart, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'cart_id' })
   cart_id: number;
 
-  @OneToOne(() => OrderStatus)
+  @OneToOne(() => OrderStatus, {
+    nullable: false,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'order_status_id' })
   order_status_id: number;
 }
